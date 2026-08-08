@@ -1,0 +1,77 @@
+/* Fade Animation */
+
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+    transition:1s ease;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* Hero Floating */
+
+.hero-content{
+
+    animation:floatHero 5s ease-in-out infinite;
+
+}
+
+@keyframes floatHero{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Button Glow */
+
+.btn:hover{
+
+    box-shadow:
+
+    0 0 20px #0A84FF,
+
+    0 0 40px #33CCFF,
+
+    0 0 60px #33CCFF;
+
+}
+
+/* Image Hover */
+
+.gallery img{
+
+    transition:.35s;
+
+}
+
+.gallery img:hover{
+
+    transform:scale(1.08);
+
+}
