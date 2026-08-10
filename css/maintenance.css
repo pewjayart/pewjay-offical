@@ -1,0 +1,805 @@
+/* =========================================================
+   PEWJAY OFFICIAL
+   MAINTENANCE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    min-height: 100%;
+
+    background: #020914;
+
+    color: #ffffff;
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+}
+
+
+/* =========================================================
+   SCREEN
+   ========================================================= */
+
+.maintenance-screen {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.maintenance-background {
+
+    position: absolute;
+
+    inset: -5%;
+
+    z-index: -5;
+
+    background:
+        url("../images/hero/hero-bg.jpg")
+        center / cover
+        no-repeat;
+
+    animation:
+        maintenanceBackground
+        18s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.maintenance-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -4;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(1, 7, 17, 0.60),
+            rgba(1, 13, 28, 0.78)
+        ),
+
+        radial-gradient(
+            circle at center,
+            rgba(40, 175, 245, 0.13),
+            transparent 55%
+        );
+
+}
+
+
+/* =========================================================
+   LIGHT
+   ========================================================= */
+
+.maintenance-light {
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    z-index: -2;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(40, 180, 255, 0.13),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    animation:
+        maintenanceLight
+        8s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.maintenance-content {
+
+    width:
+        min(650px, 92%);
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    animation:
+        maintenanceReveal
+        1s
+        ease
+        both;
+
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.maintenance-label {
+
+    color:
+        rgba(120, 215, 255, 0.72);
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.maintenance-logo {
+
+    width: 135px;
+
+    margin-top: 22px;
+
+}
+
+
+.maintenance-logo img {
+
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 10px 30px
+            rgba(0, 0, 0, 0.6)
+        );
+
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.maintenance-icon {
+
+    width: 62px;
+
+    height: 62px;
+
+    margin-top: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(90, 205, 255, 0.25);
+
+    border-radius: 50%;
+
+    background:
+        rgba(20, 100, 150, 0.08);
+
+}
+
+
+.maintenance-icon span {
+
+    font-size: 25px;
+
+    color:
+        rgba(130, 220, 255, 0.75);
+
+    animation:
+        gearSpin
+        7s
+        linear
+        infinite;
+
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.maintenance-content h1 {
+
+    margin-top: 25px;
+
+    font-size:
+        clamp(
+            35px,
+            7vw,
+            65px
+        );
+
+    line-height: 0.95;
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.maintenance-content h1 span {
+
+    display: block;
+
+    color:
+        #6bd7ff;
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.maintenance-description {
+
+    max-width: 480px;
+
+    margin-top: 20px;
+
+    color:
+        rgba(220, 240, 250, 0.60);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.maintenance-status {
+
+    margin-top: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color:
+        rgba(180, 225, 245, 0.65);
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #58717d;
+
+    box-shadow:
+        0 0 0
+        rgba(80, 205, 255, 0);
+
+    transition:
+        0.3s ease;
+
+}
+
+
+.status-dot.active {
+
+    background: #58d6ff;
+
+    box-shadow:
+        0 0 14px
+        rgba(80, 210, 255, 0.7);
+
+}
+
+
+/* =========================================================
+   CONTROL
+   ========================================================= */
+
+.maintenance-control {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.control-title {
+
+    color:
+        rgba(160, 220, 245, 0.38);
+
+    font-size: 5px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   TOGGLE
+   ========================================================= */
+
+.maintenance-toggle {
+
+    border: 0;
+
+    outline: none;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 7px 13px 7px 7px;
+
+    color: #ffffff;
+
+    background:
+        rgba(20, 80, 115, 0.18);
+
+    border:
+        1px solid
+        rgba(100, 205, 255, 0.16);
+
+    border-radius: 30px;
+
+    transition:
+        0.3s ease;
+
+}
+
+
+.maintenance-toggle:hover {
+
+    border-color:
+        rgba(100, 205, 255, 0.40);
+
+    background:
+        rgba(30, 120, 165, 0.22);
+
+}
+
+
+/* =========================================================
+   TRACK
+   ========================================================= */
+
+.toggle-track {
+
+    position: relative;
+
+    width: 42px;
+
+    height: 22px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(120, 150, 160, 0.30);
+
+    transition:
+        0.3s ease;
+
+}
+
+
+/* =========================================================
+   THUMB
+   ========================================================= */
+
+.toggle-thumb {
+
+    position: absolute;
+
+    top: 3px;
+
+    left: 3px;
+
+    width: 16px;
+
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    transition:
+        0.3s ease;
+
+}
+
+
+/* =========================================================
+   ACTIVE TOGGLE
+   ========================================================= */
+
+.maintenance-toggle.active
+.toggle-track {
+
+    background:
+        #42caff;
+
+    box-shadow:
+        0 0 14px
+        rgba(65, 205, 255, 0.40);
+
+}
+
+
+.maintenance-toggle.active
+.toggle-thumb {
+
+    transform:
+        translateX(20px);
+
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.toggle-label {
+
+    min-width: 50px;
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   HOME BUTTON
+   ========================================================= */
+
+.maintenance-home {
+
+    margin-top: 28px;
+
+    padding:
+        12px 24px;
+
+    color:
+        rgba(225, 245, 255, 0.78);
+
+    text-decoration: none;
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    border:
+        1px solid
+        rgba(100, 205, 255, 0.20);
+
+    background:
+        rgba(20, 100, 145, 0.08);
+
+    transition:
+        0.3s ease;
+
+}
+
+
+.maintenance-home:hover {
+
+    color: #ffffff;
+
+    border-color:
+        rgba(100, 215, 255, 0.55);
+
+    box-shadow:
+        0 0 20px
+        rgba(50, 180, 255, 0.12);
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.maintenance-footer {
+
+    position: absolute;
+
+    left: 25px;
+
+    right: 25px;
+
+    bottom: 20px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color:
+        rgba(180, 220, 240, 0.28);
+
+    font-size: 5px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes maintenanceBackground {
+
+    0% {
+
+        transform:
+            scale(1.03);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1.09)
+            translate(
+                -0.5%,
+                -0.5%
+            );
+
+    }
+
+}
+
+
+@keyframes maintenanceLight {
+
+    0% {
+
+        opacity: 0.35;
+
+        transform:
+            scale(0.85);
+
+    }
+
+    100% {
+
+        opacity: 0.75;
+
+        transform:
+            scale(1.12);
+
+    }
+
+}
+
+
+@keyframes maintenanceReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes gearSpin {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .maintenance-logo {
+
+        width: 110px;
+
+    }
+
+
+    .maintenance-icon {
+
+        width: 55px;
+
+        height: 55px;
+
+    }
+
+
+    .maintenance-content h1 {
+
+        font-size: 38px;
+
+    }
+
+
+    .maintenance-description {
+
+        font-size: 9px;
+
+        max-width: 330px;
+
+    }
+
+
+    .maintenance-footer {
+
+        left: 15px;
+
+        right: 15px;
+
+        bottom: 15px;
+
+        font-size: 4px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .maintenance-background,
+    .maintenance-light,
+    .maintenance-content,
+    .maintenance-icon span {
+
+        animation: none;
+
+    }
+
+}
