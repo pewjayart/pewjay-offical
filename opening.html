@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="PewJay Official — Website Opening"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>OPENING</title>
 
+    <!-- FAVICON -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/logo/favicon.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="images/logo/favicon.png"
+
+    >
 
     <!-- =====================================================
          FONTS
@@ -225,6 +226,56 @@
                 <span
                     id="opening-progress-bar"
                 ></span>
+
+            </div>
+
+        
+            <!-- =================================================
+                OPENING ACTIONS
+                ================================================= -->
+
+            <div class="opening-actions">
+
+                <!-- NOTIFY BUTTON -->
+
+                <button
+                    type="button"
+                    class="opening-action notify-button"
+                    id="notify-button"
+                    aria-label="Notify me when the website opens"
+                >
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span>
+                        NOTIFY
+                    </span>
+
+                    <strong id="notify-count">
+                        0
+                    </strong>
+
+                </button>
+
+
+                <!-- GOOGLE CALENDAR -->
+
+                <a
+                    class="opening-action calendar-button"
+                    id="calendar-button"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Add opening date to Google Calendar"
+                >
+
+                    <i class="fa-regular fa-calendar-plus"></i>
+
+                    <span>
+                        ADD CALENDAR
+                    </span>
+
+                </a>
 
             </div>
 

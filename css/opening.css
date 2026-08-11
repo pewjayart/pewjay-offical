@@ -1311,3 +1311,289 @@ body {
     }
 
 }
+
+
+/* =========================================================
+   OPENING ACTION BUTTONS
+   ========================================================= */
+
+.opening-actions {
+
+    margin-top: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+
+/* =========================================================
+   ACTION BUTTON
+   ========================================================= */
+
+.opening-action {
+
+    min-height: 38px;
+
+    padding:
+        0 15px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border:
+        1px solid
+        rgba(100, 210, 255, 0.20);
+
+    background:
+        rgba(3, 20, 35, 0.45);
+
+    color:
+        rgba(215, 240, 250, 0.75);
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.opening-action i {
+
+    color:
+        #63D4FF;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   NOTIFICATION COUNT
+   ========================================================= */
+
+.notify-button strong {
+
+    min-width: 18px;
+
+    height: 18px;
+
+    padding:
+        0 5px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(100, 210, 255, 0.20);
+
+    color:
+        #63D4FF;
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.opening-action:hover {
+
+    color:
+        #FFFFFF;
+
+    border-color:
+        rgba(100, 210, 255, 0.55);
+
+    background:
+        rgba(20, 110, 160, 0.15);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.opening-action:hover i {
+
+    text-shadow:
+        0 0 10px
+        rgba(80, 205, 255, 0.65);
+
+}
+
+
+/* =========================================================
+   CLICK
+   ========================================================= */
+
+.opening-action:active {
+
+    transform:
+        translateY(0)
+        scale(0.97);
+
+}
+
+
+/* =========================================================
+   NOTIFICATION ENABLED
+   ========================================================= */
+
+.notify-button.is-enabled {
+
+    border-color:
+        rgba(100, 220, 255, 0.55);
+
+    color:
+        #FFFFFF;
+
+}
+
+
+.notify-button.is-enabled i {
+
+    color:
+        #63D4FF;
+
+    text-shadow:
+        0 0 12px
+        rgba(80, 205, 255, 0.65);
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .opening-actions {
+
+        width: 100%;
+
+        margin-top: 22px;
+
+        gap: 7px;
+
+    }
+
+
+    .opening-action {
+
+        min-height: 36px;
+
+        padding:
+            0 11px;
+
+        gap: 6px;
+
+        font-size: 6px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .opening-action i {
+
+        font-size: 10px;
+
+    }
+
+
+    .notify-button strong {
+
+        min-width: 16px;
+
+        height: 16px;
+
+        font-size: 5px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .opening-actions {
+
+        gap: 5px;
+
+    }
+
+
+    .opening-action {
+
+        min-height: 34px;
+
+        padding:
+            0 8px;
+
+        font-size: 5px;
+
+        letter-spacing: 0.8px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .opening-action {
+
+        transition: none;
+
+    }
+
+}

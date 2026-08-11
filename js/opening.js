@@ -11,7 +11,7 @@
    ========================================================= */
 
 const TARGET_DATE =
-    new Date("August 24, 2026 00:00:00").getTime();
+    new Date("August 24, 2026 12:00:00").getTime();
 
 
 /*
@@ -464,3 +464,242 @@ document.addEventListener(
 
     }
 );
+
+
+/* =========================================================
+   PEWJAY OFFICIAL
+   OPENING.JS
+   NOTIFY + GOOGLE CALENDAR
+   ========================================================= */
+
+
+/* =========================================================
+   SETTINGS
+   ========================================================= */
+
+const openingDate =
+    new Date("2026-08-24T00:00:00+08:00");
+
+
+/* =========================================================
+   NOTIFY BUTTON
+   ========================================================= */
+
+const notifyButton =
+    document.getElementById("notify-button");
+
+const notifyCount =
+    document.getElementById("notify-count");
+
+
+/* =========================================================
+   LOCAL NOTIFY COUNT
+   ========================================================= */
+
+let savedNotifyCount =
+    Number(
+        localStorage.getItem(
+            "pewjayNotifyCount"
+        )
+    ) || 0;
+
+
+notifyCount.textContent =
+    savedNotifyCount;
+
+
+/* =========================================================
+   CHECK NOTIFICATION SUPPORT
+   ========================================================= */
+
+if (
+    !("Notification" in window)
+) {
+
+    notifyButton.disabled = true;
+
+    notifyButton.querySelector("span").textContent =
+        "NOT SUPPORTED";
+
+}
+
+
+/* =========================================================
+   NOTIFY CLICK
+   ========================================================= */
+
+notifyButton.addEventListener(
+    "click",
+    async () => {
+
+        if (
+            !("Notification" in window)
+        ) {
+            return;
+        }
+
+
+        /* ---------------------------------------------
+           ALREADY ENABLED
+           --------------------------------------------- */
+
+        if (
+            Notification.permission === "granted"
+        ) {
+
+            notifyButton.classList.add(
+                "is-enabled"
+            );
+
+            notifyButton.querySelector("span")
+                .textContent =
+                "ENABLED";
+
+            return;
+
+        }
+
+
+        /* ---------------------------------------------
+           REQUEST PERMISSION
+           --------------------------------------------- */
+
+        const permission =
+            await Notification.requestPermission();
+
+
+        if (
+            permission === "granted"
+        ) {
+
+            savedNotifyCount++;
+
+            localStorage.setItem(
+                "pewjayNotifyCount",
+                savedNotifyCount
+            );
+
+
+            notifyCount.textContent =
+                savedNotifyCount;
+
+
+            notifyButton.classList.add(
+                "is-enabled"
+            );
+
+
+            notifyButton.querySelector("span")
+                .textContent =
+                "ENABLED";
+
+
+            /* -----------------------------------------
+               TEST NOTIFICATION
+               ----------------------------------------- */
+
+            new Notification(
+                "PewJay Official",
+                {
+                    body:
+                        "Notifications are enabled for the website opening.",
+                    icon:
+                        "images/logo/favicon.png"
+                }
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   RESTORE BUTTON STATE
+   ========================================================= */
+
+if (
+    "Notification" in window &&
+    Notification.permission === "granted"
+) {
+
+    notifyButton.classList.add(
+        "is-enabled"
+    );
+
+    notifyButton.querySelector("span")
+        .textContent =
+        "ENABLED";
+
+}
+
+
+/* =========================================================
+   GOOGLE CALENDAR
+   ========================================================= */
+
+const calendarButton =
+    document.getElementById(
+        "calendar-button"
+    );
+
+
+/* =========================================================
+   EVENT INFORMATION
+   ========================================================= */
+
+const eventTitle =
+    "PewJay Official Website Opening";
+
+const eventDescription =
+    "The official PewJay Official website is opening. " +
+    "Explore digital art, sketching, animation, " +
+    "livestreams, world tour projects, fandoms, " +
+    "posters, events, and more.";
+
+const eventLocation =
+    "PewJay Official Website";
+
+
+/* =========================================================
+   GOOGLE CALENDAR DATE
+   ========================================================= */
+
+/*
+   Google Calendar format:
+
+   YYYYMMDDTHHMMSSZ
+*/
+
+const startDate =
+    "20260824T000000Z";
+
+const endDate =
+    "20260824T010000Z";
+
+
+/* =========================================================
+   CALENDAR URL
+   ========================================================= */
+
+const calendarURL =
+    "https://calendar.google.com/calendar/render" +
+    "?action=TEMPLATE" +
+    "&text=" +
+    encodeURIComponent(eventTitle) +
+    "&dates=" +
+    startDate +
+    "/" +
+    endDate +
+    "&details=" +
+    encodeURIComponent(eventDescription) +
+    "&location=" +
+    encodeURIComponent(eventLocation);
+
+
+/* =========================================================
+   SET CALENDAR LINK
+   ========================================================= */
+
+calendarButton.href =
+    calendarURL;
