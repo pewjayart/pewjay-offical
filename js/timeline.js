@@ -857,3 +857,66 @@ if (
     initializeTimeline();
 
 }
+
+/* =========================================================
+   MOBILE HERO ARROWS
+   ========================================================= */
+
+const timelinePrev =
+    document.getElementById("timeline-prev");
+
+const timelineNext =
+    document.getElementById("timeline-next");
+
+
+/* =========================================================
+   PREVIOUS
+   ========================================================= */
+
+if (timelinePrev) {
+
+    timelinePrev.addEventListener(
+        "click",
+        () => {
+
+            const previous =
+                currentEvent - 1;
+
+            if (previous >= 0) {
+
+                showEvent(previous);
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   NEXT
+   ========================================================= */
+
+if (timelineNext) {
+
+    timelineNext.addEventListener(
+        "click",
+        () => {
+
+            const next =
+                currentEvent + 1;
+
+            if (
+                next <
+                timelineEvents.length
+            ) {
+
+                showEvent(next);
+
+            }
+
+        }
+    );
+
+}
