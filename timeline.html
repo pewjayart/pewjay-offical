@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TIMELINE</title>
+
+    <!-- FAVICON -->
+    <link
+        rel="icon"
+        type="image/png"
+        href="images/logo/favicon.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="images/logo/favicon.png"
+    >
+
+    <!-- =====================================================
+         GOOGLE FONT
+         ===================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FONT AWESOME
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/timeline.css">
+
+</head>
+
+
+<body>
+
+        <!-- ================================
+         NAVIGATION
+    ================================= -->
+
+    <header class="navbar">
+
+        <!-- LEFT -->
+        <div class="nav-left">
+
+            <a href="home.html" class="brand">
+                <img src="images/logo/name.png" alt="PewJay Official Logo">
+            </a>
+
+            <div class="nav-date">
+                <span id="nav-month">AUG</span>
+                <span id="nav-date">09</span>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT -->
+        <div class="nav-right">
+
+            <div class="nav-time">
+                <span id="nav-day">SUNDAY</span>
+                <span id="nav-clock">11:00 PM</span>
+            </div>
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Open Navigation"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         MOBILE MENU
+    ================================= -->
+
+    <nav class="mobile-menu" id="mobile-menu">
+
+        <a href="home.html">HOME</a>
+        <a href="event.html">EVENTS</a>
+        <a href="news.html">NEWS</a>
+        <a href="social.html">SOCIAL</a>
+        <a href="posters.html">POSTERS</a>
+        <a href="fans.html">FANS</a>
+        <a href="timeline.html">TIMELINE</a>
+        <a href="donation.html">DONATION</a>
+
+    </nav>
+
+
+    <!-- =====================================================
+        PAGE OPENING ANIMATION
+     ===================================================== -->
+
+    <div class="page-intro" id="page-intro">
+
+        <div class="page-intro-light"></div>
+
+        <div class="page-intro-content">
+
+            <span>
+                PEWJAY OFFICIAL
+            </span>
+
+            <h1>
+                TIMELINE
+            </h1>
+
+            <div class="page-intro-line"></div>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================================
+         TIMELINE PAGE
+         ===================================================== -->
+
+    <main class="timeline-page">
+
+
+        <!-- =================================================
+             BACKGROUND
+             ================================================= -->
+
+        <div
+            class="timeline-background"
+            id="timeline-background"
+        ></div>
+
+
+        <!-- DARK OVERLAY -->
+
+        <div class="timeline-overlay"></div>
+
+
+        <!-- AMBIENT LIGHT -->
+
+        <div class="timeline-light"></div>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+
+        <section class="timeline-content">
+
+
+            <!-- LABEL -->
+
+            <span class="timeline-label">
+                PEWJAY OFFICIAL
+            </span>
+
+
+            <!-- TITLE -->
+
+            <h1>
+                THE JOURNEY
+            </h1>
+
+
+            <p class="timeline-intro">
+
+                A timeline of memories, fandoms,
+                creativity, milestones, and new beginnings.
+
+            </p>
+
+
+            <!-- =================================================
+                 EVENT INFORMATION
+                 ================================================= -->
+
+            <article
+                class="timeline-event"
+                id="timeline-event"
+            >
+
+                <span
+                    class="timeline-event-date"
+                    id="timeline-date"
+                >
+                    APRIL 17, 2016
+                </span>
+
+
+                <h2 id="timeline-title">
+                    SMURF
+                </h2>
+
+
+                <p id="timeline-description">
+
+                    FIRST FANDOM
+
+                </p>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- =================================================
+             EVENT NAVIGATION
+             ================================================= -->
+
+        <nav
+            class="timeline-navigation"
+            aria-label="Timeline events"
+        >
+
+
+            <!-- 2016 -->
+
+            <button
+                class="timeline-year active"
+                data-year="2016"
+                aria-label="2016"
+            >
+
+                <span>
+                    2016
+                </span>
+
+            </button>
+
+
+            <!-- 2019 -->
+
+            <button
+                class="timeline-year"
+                data-year="2019"
+                aria-label="2019"
+            >
+
+                <span>
+                    2019
+                </span>
+
+            </button>
+
+
+            <!-- 2021 -->
+
+            <button
+                class="timeline-year"
+                data-year="2021"
+                aria-label="2021"
+            >
+
+                <span>
+                    2021
+                </span>
+
+            </button>
+
+
+            <!-- 2022 -->
+
+            <button
+                class="timeline-year"
+                data-year="2022"
+                aria-label="2022"
+            >
+
+                <span>
+                    2022
+                </span>
+
+            </button>
+
+
+            <!-- 2023 -->
+
+            <button
+                class="timeline-year"
+                data-year="2023"
+                aria-label="2023"
+            >
+
+                <span>
+                    2023
+                </span>
+
+            </button>
+
+
+            <!-- 2024 -->
+
+            <button
+                class="timeline-year"
+                data-year="2024"
+                aria-label="2024"
+            >
+
+                <span>
+                    2024
+                </span>
+
+            </button>
+
+
+            <!-- 2025 -->
+
+            <button
+                class="timeline-year"
+                data-year="2025"
+                aria-label="2025"
+            >
+
+                <span>
+                    2025
+                </span>
+
+            </button>
+
+
+            <!-- 2026 -->
+
+            <button
+                class="timeline-year"
+                data-year="2026"
+                aria-label="2026"
+            >
+
+                <span>
+                    2026
+                </span>
+
+            </button>
+
+
+        </nav>
+
+
+        <!-- =================================================
+             EVENT DOTS
+             ================================================= -->
+
+        <div class="timeline-progress">
+
+            <span
+                id="timeline-progress-bar"
+            ></span>
+
+        </div>
+
+
+        <!-- =================================================
+             EVENT COUNT
+             ================================================= -->
+
+        <div class="timeline-counter">
+
+            <span id="timeline-current">
+                01
+            </span>
+
+            <span>
+                /
+            </span>
+
+            <span id="timeline-total">
+                27
+            </span>
+
+        </div>
+
+
+    </main>
+
+            <!-- ================================
+                FOOTER
+            ================================= -->
+
+            <footer class="site-footer">
+
+                <div class="footer-content">
+
+
+                    <!-- LEFT -->
+
+                    <div class="footer-column footer-brand">
+
+                        <img
+                            src="images/logo/name.png"
+                            alt="PewJay Official Logo"
+                            class="footer-logo"
+                        >
+
+                        <p class="hashtags">
+                            #PewJay #PewJayOfficial
+                        </p>
+
+                        <p class="footer-email">
+                            Email:
+                            <a href="mailto:justinjayhernando900@gmail.com">
+                                justinjayhernando900@gmail.com
+                            </a>
+                        </p>
+
+                    </div>
+
+
+                    <!-- CENTER -->
+
+                    <div class="footer-column footer-location">
+
+                        <h3>LOCATION</h3>
+
+                        <p>
+                            BLOCK 3B, LOT 47<br>
+                            GREGORIA DE JESUS<br>
+                            GENERAL MARIANO ALVEREZ<br>
+                            CAVITE, PHILIPPINES
+                        </p>
+
+                    </div>
+
+
+                    <!-- RIGHT -->
+
+                    <div class="footer-column footer-works">
+
+                        <h3>ALL WORKS</h3>
+
+                        <a href="#digital-art">
+                            DIGITAL ART
+                        </a>
+
+                        <a href="#sketching">
+                            SKETCHING
+                        </a>
+
+                        <a href="#livestream">
+                            LIVESTREAM
+                        </a>
+
+                        <a href="#world-tour">
+                            WORLD TOUR
+                        </a>
+
+                        <a href="#animation">
+                            ANIMATION
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOCIAL ICONS -->
+
+                <div class="footer-social">
+
+                    <a href="https://youtube.com/@PewJay_Art" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/PewJay_Art" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/share/1BvWfZyaUS/" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.x.com/PewJay_Art" aria-label="X">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@pewjay_art" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                    <a href="https://www.tumblr.com/pewjayart" aria-label="Tumblr">
+                        <i class="fa-brands fa-tumblr"></i>
+                    </a>
+
+                    <a href="https://www.threads.net/@pewjay_art" aria-label="Threads">
+                        <i class="fa-brands fa-threads"></i>
+                    </a>
+
+                    <a href="https://bsky.app/profile/pewjayart.bsky.social" aria-label="Bluesky">
+                        <i class="fa-brands fa-bluesky"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- COPYRIGHT -->
+
+                <div class="footer-bottom">
+
+                    <p>
+                        © 2026 PewJay Official. All Rights Reserved.
+                    </p>
+
+                </div>
+
+            </footer>
+
+        </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/datetime.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/maintenance.js"></script>
+    <script src="js/timeline.js"></script>
+
+</body>
+
+</html>

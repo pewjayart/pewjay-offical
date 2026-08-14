@@ -2,12 +2,12 @@
    PEWJAY OFFICIAL
    OPENING.JS
    Cinematic Opening Countdown
-   Target: August 24, 2026
+   Notify Voters + Google Calendar
    ========================================================= */
 
 
 /* =========================================================
-   SETTINGS
+   COUNTDOWN SETTINGS
    ========================================================= */
 
 const TARGET_DATE =
@@ -15,38 +15,50 @@ const TARGET_DATE =
 
 
 /*
- * Change this if your home page
- * has a different filename.
+ * Home page filename
  */
 
-const HOME_PAGE = "home.html";
+const HOME_PAGE =
+    "home.html";
 
 
 /* =========================================================
-   ELEMENTS
+   COUNTDOWN ELEMENTS
    ========================================================= */
 
 const daysElement =
-    document.getElementById("opening-days");
+    document.getElementById(
+        "opening-days"
+    );
 
 const hoursElement =
-    document.getElementById("opening-hours");
+    document.getElementById(
+        "opening-hours"
+    );
 
 const minutesElement =
-    document.getElementById("opening-minutes");
+    document.getElementById(
+        "opening-minutes"
+    );
 
 const secondsElement =
-    document.getElementById("opening-seconds");
+    document.getElementById(
+        "opening-seconds"
+    );
 
 const progressBar =
-    document.getElementById("opening-progress-bar");
+    document.getElementById(
+        "opening-progress-bar"
+    );
 
 const statusElement =
-    document.getElementById("opening-status");
+    document.getElementById(
+        "opening-status"
+    );
 
 
 /* =========================================================
-   PREVIOUS VALUES
+   PREVIOUS COUNTDOWN VALUES
    ========================================================= */
 
 let previousValues = {
@@ -84,7 +96,7 @@ function formatNumber(number) {
 
 
 /* =========================================================
-   ANIMATE NUMBER
+   ANIMATE COUNTDOWN NUMBER
    ========================================================= */
 
 function animateNumber(
@@ -94,7 +106,9 @@ function animateNumber(
 ) {
 
     if (!element) {
+
         return;
+
     }
 
 
@@ -103,8 +117,8 @@ function animateNumber(
 
 
     /*
-     * Don't animate if the
-     * value hasn't changed.
+     * Don't restart animation
+     * if the value has not changed.
      */
 
     if (
@@ -122,7 +136,7 @@ function animateNumber(
 
 
     /*
-     * Remove old animation.
+     * Remove previous animation.
      */
 
     element.classList.remove(
@@ -132,15 +146,14 @@ function animateNumber(
 
     /*
      * Force browser reflow.
-     * This allows the animation
-     * to restart correctly.
+     * Allows animation to restart.
      */
 
     void element.offsetWidth;
 
 
     /*
-     * Update number.
+     * Change number.
      */
 
     element.textContent =
@@ -159,7 +172,7 @@ function animateNumber(
 
 
 /* =========================================================
-   UPDATE PROGRESS
+   UPDATE PROGRESS BAR
    ========================================================= */
 
 function updateProgress(
@@ -167,7 +180,9 @@ function updateProgress(
 ) {
 
     if (!progressBar) {
+
         return;
+
     }
 
 
@@ -212,7 +227,7 @@ function updateProgress(
 
 
 /* =========================================================
-   UPDATE STATUS
+   UPDATE COUNTDOWN STATUS
    ========================================================= */
 
 function updateStatus(
@@ -220,7 +235,9 @@ function updateStatus(
 ) {
 
     if (!statusElement) {
+
         return;
+
     }
 
 
@@ -251,14 +268,17 @@ function updateCountdown() {
 
 
     const distance =
-        TARGET_DATE - now;
+        TARGET_DATE -
+        now;
 
 
     /* =====================================================
        COUNTDOWN FINISHED
        ===================================================== */
 
-    if (distance <= 0) {
+    if (
+        distance <= 0
+    ) {
 
         animateNumber(
             daysElement,
@@ -266,17 +286,20 @@ function updateCountdown() {
             "days"
         );
 
+
         animateNumber(
             hoursElement,
             0,
             "hours"
         );
 
+
         animateNumber(
             minutesElement,
             0,
             "minutes"
         );
+
 
         animateNumber(
             secondsElement,
@@ -287,17 +310,16 @@ function updateCountdown() {
 
         updateStatus(0);
 
+
         updateProgress(0);
 
 
         /*
-         * Optional:
-         * Redirect to home when
-         * countdown reaches zero.
+         * Automatic redirect is OFF.
          *
-         * Remove the // below
-         * if you want automatic
-         * opening of home.html.
+         * If you want the website to
+         * automatically open home.html,
+         * remove the // below.
          */
 
         // openWebsite();
@@ -308,48 +330,84 @@ function updateCountdown() {
 
 
     /* =====================================================
-       CALCULATE TIME
+       CALCULATE DAYS
        ===================================================== */
 
     const days =
         Math.floor(
             distance /
-            (1000 * 60 * 60 * 24)
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
         );
 
+
+    /* =====================================================
+       CALCULATE HOURS
+       ===================================================== */
 
     const hours =
         Math.floor(
             (
                 distance %
-                (1000 * 60 * 60 * 24)
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
             ) /
-            (1000 * 60 * 60)
+            (
+                1000 *
+                60 *
+                60
+            )
         );
 
+
+    /* =====================================================
+       CALCULATE MINUTES
+       ===================================================== */
 
     const minutes =
         Math.floor(
             (
                 distance %
-                (1000 * 60 * 60)
+                (
+                    1000 *
+                    60 *
+                    60
+                )
             ) /
-            (1000 * 60)
+            (
+                1000 *
+                60
+            )
         );
 
+
+    /* =====================================================
+       CALCULATE SECONDS
+       ===================================================== */
 
     const seconds =
         Math.floor(
             (
                 distance %
-                (1000 * 60)
+                (
+                    1000 *
+                    60
+                )
             ) /
             1000
         );
 
 
     /* =====================================================
-       DISPLAY
+       DISPLAY COUNTDOWN
        ===================================================== */
 
     animateNumber(
@@ -381,14 +439,16 @@ function updateCountdown() {
 
 
     /* =====================================================
-       STATUS
+       UPDATE STATUS
        ===================================================== */
 
-    updateStatus(days);
+    updateStatus(
+        days
+    );
 
 
     /* =====================================================
-       PROGRESS
+       UPDATE PROGRESS
        ===================================================== */
 
     updateProgress(
@@ -424,12 +484,15 @@ function openWebsite() {
      * Small transition delay.
      */
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        window.location.href =
-            HOME_PAGE;
+            window.location.href =
+                HOME_PAGE;
 
-    }, 800);
+        },
+        800
+    );
 
 }
 
@@ -443,11 +506,410 @@ function startCountdown() {
     updateCountdown();
 
 
-    setInterval(() => {
+    setInterval(
+        () => {
 
-        updateCountdown();
+            updateCountdown();
 
-    }, 1000);
+        },
+        1000
+    );
+
+}
+
+
+/* =========================================================
+   NOTIFY VOTERS
+   ========================================================= */
+
+
+/*
+ * Button
+ */
+
+const notifyButton =
+    document.getElementById(
+        "notify-button"
+    );
+
+
+/*
+ * Voter count
+ */
+
+const notifyCount =
+    document.getElementById(
+        "notify-count"
+    );
+
+
+/* =========================================================
+   LOAD SAVED VOTER COUNT
+   ========================================================= */
+
+
+/*
+ * NOTE:
+ *
+ * localStorage is only stored on the
+ * current browser/device.
+ *
+ * It is NOT a global website database.
+ */
+
+let savedNotifyCount =
+    Number(
+        localStorage.getItem(
+            "pewjayNotifyCount"
+        )
+    ) || 0;
+
+
+/* =========================================================
+   DISPLAY VOTER COUNT
+   ========================================================= */
+
+if (notifyCount) {
+
+    notifyCount.textContent =
+        savedNotifyCount;
+
+}
+
+
+/* =========================================================
+   CHECK IF THIS USER ALREADY VOTED
+   ========================================================= */
+
+const hasVoted =
+    localStorage.getItem(
+        "pewjayNotifyVoted"
+    ) === "true";
+
+
+/* =========================================================
+   NOTIFICATION SUPPORT
+   ========================================================= */
+
+if (
+    notifyButton &&
+    !("Notification" in window)
+) {
+
+    notifyButton.disabled =
+        true;
+
+
+    const buttonText =
+        notifyButton.querySelector(
+            "span"
+        );
+
+
+    if (buttonText) {
+
+        buttonText.textContent =
+            "NOT SUPPORTED";
+
+    }
+
+}
+
+
+/* =========================================================
+   RESTORE VOTER BUTTON
+   ========================================================= */
+
+if (
+    notifyButton &&
+    hasVoted
+) {
+
+    notifyButton.classList.add(
+        "is-enabled"
+    );
+
+
+    const buttonText =
+        notifyButton.querySelector(
+            "span"
+        );
+
+
+    if (buttonText) {
+
+        buttonText.textContent =
+            "NOTIFIED";
+
+    }
+
+}
+
+
+/* =========================================================
+   NOTIFY BUTTON CLICK
+   ========================================================= */
+
+if (notifyButton) {
+
+    notifyButton.addEventListener(
+        "click",
+        async () => {
+
+
+            /* =============================================
+               ALREADY VOTED
+               ============================================= */
+
+            const alreadyVoted =
+                localStorage.getItem(
+                    "pewjayNotifyVoted"
+                ) === "true";
+
+
+            if (alreadyVoted) {
+
+                return;
+
+            }
+
+
+            /* =============================================
+               CHECK NOTIFICATION SUPPORT
+               ============================================= */
+
+            if (
+                !("Notification" in window)
+            ) {
+
+                return;
+
+            }
+
+
+            /* =============================================
+               CURRENT PERMISSION
+               ============================================= */
+
+            let permission =
+                Notification.permission;
+
+
+            /* =============================================
+               REQUEST PERMISSION
+               ============================================= */
+
+            if (
+                permission !== "granted"
+            ) {
+
+                permission =
+                    await Notification.requestPermission();
+
+            }
+
+
+            /* =============================================
+               SUCCESS
+               ============================================= */
+
+            if (
+                permission === "granted"
+            ) {
+
+
+                /* -----------------------------------------
+                   SAVE VOTER
+                   ----------------------------------------- */
+
+                localStorage.setItem(
+                    "pewjayNotifyVoted",
+                    "true"
+                );
+
+
+                /* -----------------------------------------
+                   ADD ONE VOTE
+                   ----------------------------------------- */
+
+                savedNotifyCount++;
+
+
+                /* -----------------------------------------
+                   SAVE COUNT
+                   ----------------------------------------- */
+
+                localStorage.setItem(
+                    "pewjayNotifyCount",
+                    savedNotifyCount
+                );
+
+
+                /* -----------------------------------------
+                   UPDATE COUNT ON SCREEN
+                   ----------------------------------------- */
+
+                if (notifyCount) {
+
+                    notifyCount.textContent =
+                        savedNotifyCount;
+
+                }
+
+
+                /* -----------------------------------------
+                   BUTTON STATE
+                   ----------------------------------------- */
+
+                notifyButton.classList.add(
+                    "is-enabled"
+                );
+
+
+                const buttonText =
+                    notifyButton.querySelector(
+                        "span"
+                    );
+
+
+                if (buttonText) {
+
+                    buttonText.textContent =
+                        "NOTIFIED";
+
+                }
+
+
+                /* -----------------------------------------
+                   CONFIRMATION NOTIFICATION
+                   ----------------------------------------- */
+
+                try {
+
+                    new Notification(
+                        "PewJay Official",
+                        {
+
+                            body:
+                                "You're now subscribed to PewJay Official website notifications.",
+
+                            icon:
+                                "images/logo/favicon.png"
+
+                        }
+                    );
+
+                }
+                catch (error) {
+
+                    console.log(
+                        "Notification created."
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   GOOGLE CALENDAR
+   ========================================================= */
+
+
+/*
+ * Calendar button
+ */
+
+const calendarButton =
+    document.getElementById(
+        "calendar-button"
+    );
+
+
+/* =========================================================
+   EVENT INFORMATION
+   ========================================================= */
+
+const eventTitle =
+    "PewJay Official Website Opening";
+
+
+const eventDescription =
+    "The official PewJay Official website is opening. " +
+    "Explore digital art, sketching, animation, " +
+    "livestreams, world tour projects, fandoms, " +
+    "posters, events, and more.";
+
+
+const eventLocation =
+    "PewJay Official Website";
+
+
+/* =========================================================
+   GOOGLE CALENDAR DATE
+   ========================================================= */
+
+
+/*
+ * Google Calendar format:
+ *
+ * YYYYMMDDTHHMMSSZ
+ *
+ * August 24, 2026
+ */
+
+const startDate =
+    "20260824T000000Z";
+
+
+const endDate =
+    "20260824T010000Z";
+
+
+/* =========================================================
+   GOOGLE CALENDAR URL
+   ========================================================= */
+
+const calendarURL =
+    "https://calendar.google.com/calendar/render" +
+    "?action=TEMPLATE" +
+    "&text=" +
+    encodeURIComponent(
+        eventTitle
+    ) +
+    "&dates=" +
+    startDate +
+    "/" +
+    endDate +
+    "&details=" +
+    encodeURIComponent(
+        eventDescription
+    ) +
+    "&location=" +
+    encodeURIComponent(
+        eventLocation
+    );
+
+
+/* =========================================================
+   SET GOOGLE CALENDAR LINK
+   ========================================================= */
+
+if (calendarButton) {
+
+    calendarButton.href =
+        calendarURL;
+
+    calendarButton.target =
+        "_blank";
+
+    calendarButton.rel =
+        "noopener noreferrer";
 
 }
 
@@ -464,242 +926,3 @@ document.addEventListener(
 
     }
 );
-
-
-/* =========================================================
-   PEWJAY OFFICIAL
-   OPENING.JS
-   NOTIFY + GOOGLE CALENDAR
-   ========================================================= */
-
-
-/* =========================================================
-   SETTINGS
-   ========================================================= */
-
-const openingDate =
-    new Date("2026-08-24T00:00:00+08:00");
-
-
-/* =========================================================
-   NOTIFY BUTTON
-   ========================================================= */
-
-const notifyButton =
-    document.getElementById("notify-button");
-
-const notifyCount =
-    document.getElementById("notify-count");
-
-
-/* =========================================================
-   LOCAL NOTIFY COUNT
-   ========================================================= */
-
-let savedNotifyCount =
-    Number(
-        localStorage.getItem(
-            "pewjayNotifyCount"
-        )
-    ) || 0;
-
-
-notifyCount.textContent =
-    savedNotifyCount;
-
-
-/* =========================================================
-   CHECK NOTIFICATION SUPPORT
-   ========================================================= */
-
-if (
-    !("Notification" in window)
-) {
-
-    notifyButton.disabled = true;
-
-    notifyButton.querySelector("span").textContent =
-        "NOT SUPPORTED";
-
-}
-
-
-/* =========================================================
-   NOTIFY CLICK
-   ========================================================= */
-
-notifyButton.addEventListener(
-    "click",
-    async () => {
-
-        if (
-            !("Notification" in window)
-        ) {
-            return;
-        }
-
-
-        /* ---------------------------------------------
-           ALREADY ENABLED
-           --------------------------------------------- */
-
-        if (
-            Notification.permission === "granted"
-        ) {
-
-            notifyButton.classList.add(
-                "is-enabled"
-            );
-
-            notifyButton.querySelector("span")
-                .textContent =
-                "ENABLED";
-
-            return;
-
-        }
-
-
-        /* ---------------------------------------------
-           REQUEST PERMISSION
-           --------------------------------------------- */
-
-        const permission =
-            await Notification.requestPermission();
-
-
-        if (
-            permission === "granted"
-        ) {
-
-            savedNotifyCount++;
-
-            localStorage.setItem(
-                "pewjayNotifyCount",
-                savedNotifyCount
-            );
-
-
-            notifyCount.textContent =
-                savedNotifyCount;
-
-
-            notifyButton.classList.add(
-                "is-enabled"
-            );
-
-
-            notifyButton.querySelector("span")
-                .textContent =
-                "ENABLED";
-
-
-            /* -----------------------------------------
-               TEST NOTIFICATION
-               ----------------------------------------- */
-
-            new Notification(
-                "PewJay Official",
-                {
-                    body:
-                        "Notifications are enabled for the website opening.",
-                    icon:
-                        "images/logo/favicon.png"
-                }
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   RESTORE BUTTON STATE
-   ========================================================= */
-
-if (
-    "Notification" in window &&
-    Notification.permission === "granted"
-) {
-
-    notifyButton.classList.add(
-        "is-enabled"
-    );
-
-    notifyButton.querySelector("span")
-        .textContent =
-        "ENABLED";
-
-}
-
-
-/* =========================================================
-   GOOGLE CALENDAR
-   ========================================================= */
-
-const calendarButton =
-    document.getElementById(
-        "calendar-button"
-    );
-
-
-/* =========================================================
-   EVENT INFORMATION
-   ========================================================= */
-
-const eventTitle =
-    "PewJay Official Website Opening";
-
-const eventDescription =
-    "The official PewJay Official website is opening. " +
-    "Explore digital art, sketching, animation, " +
-    "livestreams, world tour projects, fandoms, " +
-    "posters, events, and more.";
-
-const eventLocation =
-    "PewJay Official Website";
-
-
-/* =========================================================
-   GOOGLE CALENDAR DATE
-   ========================================================= */
-
-/*
-   Google Calendar format:
-
-   YYYYMMDDTHHMMSSZ
-*/
-
-const startDate =
-    "20260824T000000Z";
-
-const endDate =
-    "20260824T010000Z";
-
-
-/* =========================================================
-   CALENDAR URL
-   ========================================================= */
-
-const calendarURL =
-    "https://calendar.google.com/calendar/render" +
-    "?action=TEMPLATE" +
-    "&text=" +
-    encodeURIComponent(eventTitle) +
-    "&dates=" +
-    startDate +
-    "/" +
-    endDate +
-    "&details=" +
-    encodeURIComponent(eventDescription) +
-    "&location=" +
-    encodeURIComponent(eventLocation);
-
-
-/* =========================================================
-   SET CALENDAR LINK
-   ========================================================= */
-
-calendarButton.href =
-    calendarURL;
