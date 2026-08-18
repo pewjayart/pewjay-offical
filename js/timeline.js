@@ -239,6 +239,14 @@ const timelineEvents = [
 
     {
         year: "2026",
+        date: "JUNE 8, 2026",
+        title: "ANGRY BIRDS 2",
+        description: "GAMER IS RETURNS",
+        image: "images/timeline/angry-birds-2-2026.jpg"
+    },
+
+    {
+        year: "2026",
         date: "JULY 13, 2026",
         title: "PEWJAY WEBSITES",
         description: "FIRST CREATED PEWJAY WEBSITES",
