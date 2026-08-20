@@ -355,85 +355,706 @@ button {
 
 /* =========================================================
    7. MOBILE MENU
+   FULL SCREEN — BOTTOM LEFT CINEMATIC
    ========================================================= */
 
 .mobile-menu {
+
     position: fixed;
 
-    top: 78px;
-    right: 30px;
+    inset: 0;
 
-    width: 250px;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
 
-    padding: 15px;
+    padding:
+        0 7vw 70px;
 
     display: flex;
+
     flex-direction: column;
-    gap: 5px;
+
+    justify-content: flex-end;
+
+    align-items: flex-start;
 
     background:
-        rgba(3, 15, 31, 0.96);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 14px;
-
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        var(--glow-large);
+        linear-gradient(
+            180deg,
+            rgb(2, 10, 20),
+            rgb(3, 20, 38)
+        );
 
     opacity: 0;
+
     visibility: hidden;
 
     transform:
-        translateY(-15px);
+        translateY(-100%);
 
     transition:
-        0.3s ease;
+        transform 0.6s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        ),
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 
-    z-index: 999;
+    overflow: hidden;
+
+    z-index: 998;
+
 }
 
+
+/* =========================================================
+   TOP AMBIENT LIGHT
+   ========================================================= */
+
+.mobile-menu::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    top: -280px;
+    right: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(45, 175, 255, 0.16),
+            transparent 70%
+        );
+
+    filter:
+        blur(35px);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   BOTTOM LEFT AMBIENT LIGHT
+   ========================================================= */
+
+.mobile-menu::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    left: -250px;
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(25, 110, 240, 0.16),
+            transparent 70%
+        );
+
+    filter:
+        blur(35px);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   OPEN
+   ========================================================= */
+
 .mobile-menu.active {
+
     opacity: 1;
+
     visibility: visible;
 
     transform:
         translateY(0);
+
 }
+
+
+/* =========================================================
+   MENU CONTAINER
+   ========================================================= */
 
 .mobile-menu a {
-    padding: 14px 16px;
 
-    border-radius: 8px;
+    position: relative;
 
-    color: var(--text-secondary);
+    z-index: 2;
 
-    font-size: 13px;
-    font-weight: 700;
+    width: min(
+        520px,
+        100%
+    );
 
-    letter-spacing: 1.5px;
+    padding:
+        12px 5px;
 
-    transition:
-        var(--transition);
-}
+    display: flex;
 
-.mobile-menu a:hover {
-    color: #ffffff;
+    align-items: center;
+
+    justify-content: space-between;
+
+    color:
+        rgba(
+            220,
+            240,
+            250,
+            0.48
+        );
 
     background:
-        rgba(20, 130, 240, 0.15);
+        transparent;
 
-    box-shadow:
-        inset 3px 0 0 var(--blue-main);
+    border: 0;
+
+    border-bottom:
+        1px solid
+        rgba(
+            120,
+            210,
+            255,
+            0.09
+        );
+
+    font-size:
+        16px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.5px;
+
+    text-decoration:
+        none;
+
+    transition:
+        color 0.25s ease,
+        padding-left 0.3s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+
 }
 
+/* =========================================================
+   RIGHT ARROW
+   ========================================================= */
+
+.mobile-menu a::after {
+
+    content:
+        "→";
+
+    margin-left:
+        auto;
+
+    color:
+        rgba(
+            100,
+            210,
+            255,
+            0.25
+        );
+
+    font-size:
+        12px;
+
+    opacity:
+        0.55;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        opacity 0.25s ease;
+
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.mobile-menu a:hover {
+
+    color:
+        #ffffff;
+
+    padding-left:
+        14px;
+
+    border-color:
+        rgba(
+            100,
+            210,
+            255,
+            0.28
+        );
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(
+                40,
+                160,
+                230,
+                0.06
+            ),
+            transparent
+        );
+
+}
+
+
+.mobile-menu a:hover::before {
+
+    color:
+        #63d4ff;
+
+}
+
+
+.mobile-menu a:hover::after {
+
+    color:
+        #63d4ff;
+
+    opacity:
+        1;
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   ACTIVE PAGE
+   ========================================================= */
+
+.mobile-menu a.active {
+
+    color:
+        #ffffff;
+
+    border-color:
+        rgba(
+            100,
+            210,
+            255,
+            0.45
+        );
+
+    box-shadow:
+        inset 2px 0 0
+        rgba(
+            90,
+            210,
+            255,
+            0.85
+        );
+
+}
+
+
+/* =========================================================
+   ACTIVE NUMBER
+   ========================================================= */
+
+.mobile-menu a.active::before {
+
+    color:
+        #63d4ff;
+
+}
+
+
+/* =========================================================
+   ACTIVE INDICATOR
+   ========================================================= */
+
+.mobile-menu a.active::after {
+
+    content:
+        "●";
+
+    color:
+        #63d4ff;
+
+    font-size:
+        7px;
+
+    opacity:
+        1;
+
+    transform:
+        none;
+
+    text-shadow:
+        0 0 10px
+        rgba(
+            70,
+            200,
+            255,
+            0.8
+        );
+
+}
+
+
+/* =========================================================
+   MENU ITEM ANIMATION
+   ========================================================= */
+
+.mobile-menu.active a {
+
+    animation:
+        menuBottomReveal
+        0.45s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        )
+        both;
+
+}
+
+
+.mobile-menu.active a:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.mobile-menu.active a:nth-child(2) {
+    animation-delay: 0.09s;
+}
+
+.mobile-menu.active a:nth-child(3) {
+    animation-delay: 0.13s;
+}
+
+.mobile-menu.active a:nth-child(4) {
+    animation-delay: 0.17s;
+}
+
+.mobile-menu.active a:nth-child(5) {
+    animation-delay: 0.21s;
+}
+
+.mobile-menu.active a:nth-child(6) {
+    animation-delay: 0.25s;
+}
+
+.mobile-menu.active a:nth-child(7) {
+    animation-delay: 0.29s;
+}
+
+.mobile-menu.active a:nth-child(8) {
+    animation-delay: 0.33s;
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+@keyframes menuBottomReveal {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateX(-20px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   MENU FOOTER
+   ========================================================= */
+
+.mobile-menu .menu-footer {
+
+    position:
+        absolute;
+
+    left:
+        7vw;
+
+    right:
+        7vw;
+
+    bottom:
+        25px;
+
+    z-index:
+        3;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    color:
+        rgba(
+            180,
+            220,
+            240,
+            0.28
+        );
+
+    font-size:
+        6px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        2px;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .mobile-menu {
+
+        padding:
+            0 24px 65px;
+
+        justify-content:
+            flex-end;
+
+    }
+
+
+    .mobile-menu a {
+
+        width:
+            100%;
+
+        padding:
+            11px 4px;
+
+        font-size:
+            15px;
+
+        letter-spacing:
+            1.3px;
+
+    }
+
+
+    .mobile-menu a::before {
+
+        width:
+            25px;
+
+        margin-right:
+            10px;
+
+        font-size:
+            6px;
+
+    }
+
+
+    .mobile-menu a::after {
+
+        font-size:
+            11px;
+
+    }
+
+
+    .mobile-menu .menu-footer {
+
+        left:
+            24px;
+
+        right:
+            24px;
+
+        bottom:
+            20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .mobile-menu {
+
+        padding:
+            0 20px 60px;
+
+    }
+
+
+    .mobile-menu a {
+
+        padding:
+            9px 3px;
+
+        font-size:
+            14px;
+
+        letter-spacing:
+            1px;
+
+    }
+
+
+    .mobile-menu a::before {
+
+        width:
+            23px;
+
+        margin-right:
+            8px;
+
+    }
+
+
+    .mobile-menu .menu-footer {
+
+        left:
+            20px;
+
+        right:
+            20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (
+    max-height: 500px
+) and (
+    orientation: landscape
+) {
+
+    .mobile-menu {
+
+        padding:
+            75px 7vw 45px;
+
+        justify-content:
+            flex-end;
+
+    }
+
+
+    .mobile-menu a {
+
+        width:
+            70%;
+
+        max-width:
+            500px;
+
+        padding:
+            7px 5px;
+
+        font-size:
+            13px;
+
+    }
+
+
+    .mobile-menu .menu-footer {
+
+        bottom:
+            12px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    .mobile-menu {
+
+        transition:
+            opacity 0.2s ease;
+
+        transform:
+            none;
+
+    }
+
+
+    .mobile-menu.active a {
+
+        animation:
+            none;
+
+    }
+
+}
 
 /* =========================================================
    8. GLOBAL BUTTONS
@@ -1145,528 +1766,3 @@ button:focus-visible {
 }
 
 
-
-/* =========================================================
-   PEWJAY OFFICIAL
-   GLOBAL COOKIE NOTICE
-   STYLE 02 — CINEMATIC GLASS CARD
-   ========================================================= */
-
-
-/* =========================================================
-   COOKIE CARD
-   ========================================================= */
-
-.cookie-card {
-
-    position: fixed;
-
-    right: 28px;
-    bottom: 28px;
-
-    z-index: 99999;
-
-    width: min(390px, calc(100% - 56px));
-
-    padding: 20px;
-
-    border:
-        1px solid
-        rgba(100, 210, 255, 0.20);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(8, 28, 45, 0.94),
-            rgba(2, 10, 20, 0.96)
-        );
-
-    box-shadow:
-        0 25px 70px
-        rgba(0, 0, 0, 0.55),
-
-        inset 0 1px 0
-        rgba(150, 225, 255, 0.05);
-
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateY(35px)
-        scale(0.96);
-
-    transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease,
-        transform 0.55s
-        cubic-bezier(
-            0.16,
-            1,
-            0.3,
-            1
-        );
-
-}
-
-
-/* =========================================================
-   SHOW
-   ========================================================= */
-
-.cookie-card.show {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    transform:
-        translateY(0)
-        scale(1);
-
-}
-
-
-/* =========================================================
-   BLUE AMBIENT LIGHT
-   ========================================================= */
-
-.cookie-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 180px;
-    height: 180px;
-
-    top: -110px;
-    right: -80px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(50, 190, 255, 0.18),
-            transparent 70%
-        );
-
-    filter:
-        blur(15px);
-
-    pointer-events: none;
-
-}
-
-
-/* =========================================================
-   TOP
-   ========================================================= */
-
-.cookie-card-top {
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-}
-
-
-.cookie-card-icon {
-
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border:
-        1px solid
-        rgba(100, 210, 255, 0.22);
-
-    border-radius: 50%;
-
-    color:
-        #68d5ff;
-
-    background:
-        rgba(50, 170, 230, 0.08);
-
-    font-size: 12px;
-
-}
-
-
-.cookie-card-top > span {
-
-    color:
-        rgba(120, 215, 255, 0.65);
-
-    font-size: 6px;
-
-    font-weight: 900;
-
-    letter-spacing: 2.5px;
-
-}
-
-
-/* =========================================================
-   CLOSE
-   ========================================================= */
-
-.cookie-card-close {
-
-    margin-left: auto;
-
-    width: 28px;
-    height: 28px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: 0;
-
-    background: transparent;
-
-    color:
-        rgba(210, 235, 245, 0.38);
-
-    cursor: pointer;
-
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
-
-}
-
-
-.cookie-card-close:hover {
-
-    color:
-        #ffffff;
-
-    transform:
-        rotate(90deg);
-
-}
-
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
-
-.cookie-card-content {
-
-    position: relative;
-
-    margin-top: 20px;
-
-}
-
-
-.cookie-card-content h3 {
-
-    color:
-        #ffffff;
-
-    font-size: 21px;
-
-    font-weight: 800;
-
-    letter-spacing:
-        -0.7px;
-
-}
-
-
-.cookie-card-content p {
-
-    max-width: 330px;
-
-    margin-top: 9px;
-
-    color:
-        rgba(210, 235, 245, 0.48);
-
-    font-size: 8px;
-
-    line-height: 1.8;
-
-}
-
-
-/* =========================================================
-   BOTTOM
-   ========================================================= */
-
-.cookie-card-bottom {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin-top: 20px;
-
-    padding-top: 15px;
-
-    border-top:
-        1px solid
-        rgba(100, 210, 255, 0.10);
-
-}
-
-
-/* =========================================================
-   STATUS
-   ========================================================= */
-
-.cookie-card-status {
-
-    color:
-        rgba(150, 220, 240, 0.35);
-
-    font-size: 5px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.3px;
-
-    white-space: nowrap;
-
-}
-
-
-.cookie-card-status i {
-
-    margin-right: 5px;
-
-    color:
-        rgba(80, 200, 255, 0.60);
-
-    font-size: 5px;
-
-}
-
-
-/* =========================================================
-   ACCEPT
-   ========================================================= */
-
-.cookie-card-accept {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 9px;
-
-    padding:
-        10px 13px;
-
-    border:
-        1px solid
-        rgba(100, 210, 255, 0.28);
-
-    background:
-        rgba(50, 170, 230, 0.10);
-
-    color:
-        #72d9ff;
-
-    font-size: 6px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.3px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
-
-}
-
-
-.cookie-card-accept i {
-
-    font-size: 7px;
-
-    transition:
-        transform 0.25s ease;
-
-}
-
-
-.cookie-card-accept:hover {
-
-    background:
-        rgba(50, 170, 230, 0.20);
-
-    border-color:
-        rgba(100, 210, 255, 0.55);
-
-}
-
-
-.cookie-card-accept:hover i {
-
-    transform:
-        translateX(3px);
-
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    .cookie-card {
-
-        left: 14px;
-        right: 14px;
-
-        bottom: 14px;
-
-        width:
-            auto;
-
-        padding: 17px;
-
-    }
-
-
-    .cookie-card-content h3 {
-
-        font-size: 18px;
-
-    }
-
-
-    .cookie-card-content p {
-
-        font-size: 7px;
-
-        line-height: 1.7;
-
-    }
-
-
-    .cookie-card-bottom {
-
-        align-items: flex-end;
-
-    }
-
-
-    .cookie-card-status {
-
-        font-size: 4px;
-
-    }
-
-
-    .cookie-card-accept {
-
-        padding:
-            9px 11px;
-
-        font-size: 5px;
-
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 380px) {
-
-    .cookie-card {
-
-        padding: 15px;
-
-    }
-
-
-    .cookie-card-content {
-
-        margin-top: 16px;
-
-    }
-
-
-    .cookie-card-content h3 {
-
-        font-size: 16px;
-
-    }
-
-
-    .cookie-card-bottom {
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-    }
-
-
-    .cookie-card-status {
-
-        order: 2;
-
-    }
-
-
-    .cookie-card-accept {
-
-        justify-content: center;
-
-        width: 100%;
-
-    }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .cookie-card {
-
-        transition: none;
-
-    }
-
-}
