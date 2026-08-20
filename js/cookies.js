@@ -59,7 +59,7 @@ document.addEventListener(
                     );
 
                 },
-                900
+                7000
             );
 
         }
