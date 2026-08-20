@@ -1,229 +1,354 @@
 /* =========================================================
    PEWJAY OFFICIAL
    MENU.JS
-   Two-Line Hamburger Navigation
+   Mobile Menu + Active Page Status
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    const menuToggle =
-        document.getElementById("menu-toggle");
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
 
-    const mobileMenu =
-        document.getElementById("mobile-menu");
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const mobileMenu =
+    document.getElementById("mobile-menu");
 
 
-    /* =====================================================
-       CHECK ELEMENTS
-    ===================================================== */
+/* =========================================================
+   MENU LINKS
+   ========================================================= */
+
+const menuLinks =
+    mobileMenu
+        ? mobileMenu.querySelectorAll("a")
+        : [];
+
+
+/* =========================================================
+   OPEN / CLOSE MENU
+   ========================================================= */
+
+function toggleMenu() {
 
     if (!menuToggle || !mobileMenu) {
-        console.warn(
-            "Menu elements were not found."
-        );
-
         return;
     }
 
 
-    /* =====================================================
-       OPEN / CLOSE MENU
-    ===================================================== */
-
-    function toggleMenu() {
-
-        const isOpen =
-            mobileMenu.classList.toggle("active");
+    const isOpen =
+        mobileMenu.classList.toggle("active");
 
 
-        menuToggle.classList.toggle(
-            "active",
-            isOpen
-        );
+    menuToggle.classList.toggle(
+        "active",
+        isOpen
+    );
 
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-        );
+    menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+    );
 
 
-        document.body.classList.toggle(
-            "menu-open",
-            isOpen
-        );
-
-    }
-
-
-    /* =====================================================
-       CLOSE MENU
-    ===================================================== */
-
-    function closeMenu() {
-
-        mobileMenu.classList.remove(
-            "active"
-        );
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Close Navigation"
+            : "Open Navigation"
+    );
 
 
-        menuToggle.classList.remove(
-            "active"
-        );
+    /* Prevent background scrolling */
+
+    document.body.classList.toggle(
+        "menu-open",
+        isOpen
+    );
+
+}
 
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+/* =========================================================
+   MENU BUTTON
+   ========================================================= */
 
-
-        document.body.classList.remove(
-            "menu-open"
-        );
-
-    }
-
-
-    /* =====================================================
-       HAMBURGER CLICK
-    ===================================================== */
+if (menuToggle) {
 
     menuToggle.addEventListener(
         "click",
-        (event) => {
-
-            event.stopPropagation();
-
-            toggleMenu();
-
-        }
+        toggleMenu
     );
 
-
-    /* =====================================================
-       MENU LINKS
-    ===================================================== */
-
-    const menuLinks =
-        mobileMenu.querySelectorAll("a");
+}
 
 
-    menuLinks.forEach((link) => {
+/* =========================================================
+   CLOSE MENU WHEN LINK IS CLICKED
+   ========================================================= */
 
-        link.addEventListener(
-            "click",
-            () => {
+menuLinks.forEach(link => {
 
-                closeMenu();
-
-            }
-        );
-
-    });
-
-
-    /* =====================================================
-       CLICK OUTSIDE
-    ===================================================== */
-
-    document.addEventListener(
+    link.addEventListener(
         "click",
-        (event) => {
-
-            const clickedMenu =
-                mobileMenu.contains(
-                    event.target
-                );
-
-
-            const clickedButton =
-                menuToggle.contains(
-                    event.target
-                );
-
-
-            if (
-                !clickedMenu &&
-                !clickedButton
-            ) {
-
-                closeMenu();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       ESCAPE KEY
-    ===================================================== */
-
-    document.addEventListener(
-        "keydown",
-        (event) => {
-
-            if (
-                event.key === "Escape" &&
-                mobileMenu.classList.contains("active")
-            ) {
-
-                closeMenu();
-
-                menuToggle.focus();
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       CLOSE MENU AFTER RESIZING TO DESKTOP
-    ===================================================== */
-
-    let resizeTimer;
-
-
-    window.addEventListener(
-        "resize",
         () => {
 
-            clearTimeout(
-                resizeTimer
+            if (!mobileMenu || !menuToggle) {
+                return;
+            }
+
+
+            mobileMenu.classList.remove(
+                "active"
             );
 
 
-            resizeTimer =
-                setTimeout(
-                    () => {
+            menuToggle.classList.remove(
+                "active"
+            );
 
-                        /*
-                         * When screen becomes desktop-sized,
-                         * close the mobile navigation.
-                         */
 
-                        if (
-                            window.innerWidth > 767
-                        ) {
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
-                            closeMenu();
 
-                        }
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open Navigation"
+            );
 
-                    },
-                    150
-                );
+
+            document.body.classList.remove(
+                "menu-open"
+            );
 
         }
     );
 
-
-    /* =====================================================
-       INITIAL STATE
-    ===================================================== */
-
-    closeMenu();
-
 });
+
+
+/* =========================================================
+   ACTIVE PAGE
+   ========================================================= */
+
+function setActivePage() {
+
+    const currentPath =
+        window.location.pathname;
+
+
+    let currentPage =
+        currentPath
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+
+    /*
+     * If the URL has no HTML filename,
+     * treat it as home.html.
+     */
+
+    if (
+        currentPage === "" ||
+        currentPage === "/"
+    ) {
+
+        currentPage =
+            "home.html";
+
+    }
+
+
+    menuLinks.forEach(link => {
+
+        const linkURL =
+            new URL(
+                link.href,
+                window.location.href
+            );
+
+
+        let linkPage =
+            linkURL.pathname
+                .split("/")
+                .pop()
+                .toLowerCase();
+
+
+        if (
+            linkPage === "" ||
+            linkPage === "/"
+        ) {
+
+            linkPage =
+                "home.html";
+
+        }
+
+
+        /*
+         * Remove previous active state
+         */
+
+        link.classList.remove(
+            "active"
+        );
+
+
+        /*
+         * Remove old status
+         */
+
+        link.removeAttribute(
+            "aria-current"
+        );
+
+
+        /*
+         * Add active state
+         */
+
+        if (
+            linkPage === currentPage
+        ) {
+
+            link.classList.add(
+                "active"
+            );
+
+
+            link.setAttribute(
+                "aria-current",
+                "page"
+            );
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   RUN ACTIVE PAGE
+   ========================================================= */
+
+setActivePage();
+
+
+/* =========================================================
+   ESCAPE KEY
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            mobileMenu &&
+            mobileMenu.classList.contains("active")
+        ) {
+
+            mobileMenu.classList.remove(
+                "active"
+            );
+
+
+            menuToggle?.classList.remove(
+                "active"
+            );
+
+
+            menuToggle?.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            menuToggle?.setAttribute(
+                "aria-label",
+                "Open Navigation"
+            );
+
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE MENU
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            !mobileMenu ||
+            !menuToggle
+        ) {
+            return;
+        }
+
+
+        const clickedInsideMenu =
+            mobileMenu.contains(
+                event.target
+            );
+
+
+        const clickedToggle =
+            menuToggle.contains(
+                event.target
+            );
+
+
+        if (
+            mobileMenu.classList.contains("active") &&
+            !clickedInsideMenu &&
+            !clickedToggle
+        ) {
+
+            mobileMenu.classList.remove(
+                "active"
+            );
+
+
+            menuToggle.classList.remove(
+                "active"
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open Navigation"
+            );
+
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+    }
+);

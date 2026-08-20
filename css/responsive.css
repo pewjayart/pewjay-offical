@@ -18,6 +18,7 @@
         height: 250px;
     }
 
+
     .hero-text h1 {
         font-size: 72px;
     }
@@ -37,10 +38,12 @@
         padding-right: 35px;
     }
 
+
     .portfolio-section {
         padding-left: 35px;
         padding-right: 35px;
     }
+
 
     .playlist-track img {
         flex: 0 0 calc(33.333% - 10px);
@@ -57,94 +60,142 @@
 
 @media (max-width: 1199px) {
 
-    /* NAVIGATION */
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
 
     .navbar {
         height: 72px;
+
         padding:
             0 28px;
     }
 
+
     .brand img {
         width: 130px;
     }
+
 
     .nav-date {
         padding-left: 16px;
         gap: 6px;
     }
 
+
     .nav-right {
         gap: 20px;
     }
 
+
+    /* =====================================================
+       FULL SCREEN MOBILE MENU
+       ===================================================== */
+
     .mobile-menu {
-        top: 72px;
+
+        top: 0;
+        right: 0;
+
+        width: 100%;
+        max-width: none;
+
+        height: 100vh;
+        height: 100svh;
+
+        padding:
+            0 7vw 85px;
+
+        justify-content:
+            flex-end;
+
+        align-items:
+            flex-start;
+
     }
 
 
-    /* HERO */
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero-content {
         padding:
             0 60px;
     }
 
+
     .hero-text {
         max-width: 700px;
     }
+
 
     .hero-text h1 {
         font-size: 58px;
     }
 
 
-    /* SECTIONS */
+    /* =====================================================
+       SECTIONS
+       ===================================================== */
 
     .portfolio-section {
         padding:
             90px 28px;
     }
 
+
     .section-heading {
         margin-bottom: 40px;
     }
 
 
-    /* PLAYLIST */
+    /* =====================================================
+       PLAYLIST
+       ===================================================== */
 
     .playlist-track img {
+
         flex:
             0 0 calc(33.333% - 10px);
 
         width:
             calc(33.333% - 10px);
 
-        height: 210px;
+        height:
+            210px;
+
     }
 
 
-    /* ANIMATION CARDS */
+    /* =====================================================
+       ANIMATION CARDS
+       ===================================================== */
 
     .animation-cards {
         gap: 18px;
     }
 
+
     .animation-card-image {
         height: 220px;
     }
+
 
     .animation-card-content {
         padding: 22px;
     }
 
 
-    /* FOOTER */
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .site-footer {
         padding:
             60px 28px 25px;
     }
+
 
     .footer-content {
         gap: 40px;
@@ -160,32 +211,61 @@
 
 @media (max-width: 991px) {
 
-    /* NAVIGATION */
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
 
     .navbar {
         height: 68px;
     }
 
+
+    /* =====================================================
+       FULL SCREEN MOBILE MENU
+       ===================================================== */
+
     .mobile-menu {
-        top: 68px;
-        right: 20px;
+
+        top: 0;
+        right: 0;
+
+        width: 100%;
+        max-width: none;
+
+        height: 100vh;
+        height: 100svh;
+
+        padding:
+            0 7vw 85px;
+
+        justify-content:
+            flex-end;
+
+        align-items:
+            flex-start;
+
     }
 
 
-    /* HERO */
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero-content {
         padding:
             0 45px;
     }
 
+
     .hero-text {
         max-width: 650px;
     }
 
+
     .hero-text h1 {
         font-size: 50px;
     }
+
 
     .hero-subtitle {
         font-size: 12px;
@@ -193,22 +273,28 @@
     }
 
 
-    /* STATS */
+    /* =====================================================
+       STATS
+       ===================================================== */
 
     .hero-stats {
         gap: 25px;
     }
 
+
     .stat-item strong {
         font-size: 26px;
     }
+
 
     .stat-item span {
         font-size: 9px;
     }
 
 
-    /* SECTIONS */
+    /* =====================================================
+       SECTIONS
+       ===================================================== */
 
     .portfolio-section {
         padding:
@@ -216,38 +302,54 @@
     }
 
 
-    /* PLAYLIST */
+    /* =====================================================
+       PLAYLIST
+       ===================================================== */
 
     .playlist-track img {
+
         flex:
             0 0 calc(50% - 8px);
 
         width:
             calc(50% - 8px);
 
-        height: 220px;
+        height:
+            220px;
+
     }
+
 
     .playlist-container {
         gap: 10px;
     }
 
+
     .slider-arrow {
-        flex: 0 0 44px;
+
+        flex:
+            0 0 44px;
 
         width: 44px;
         height: 44px;
+
     }
 
 
-    /* ANIMATION */
+    /* =====================================================
+       ANIMATION
+       ===================================================== */
 
     .animation-cards {
+
         grid-template-columns:
             repeat(2, 1fr);
+
     }
 
+
     .animation-card:nth-child(3) {
+
         grid-column:
             1 / -1;
 
@@ -256,31 +358,46 @@
 
         margin:
             0 auto;
+
     }
 
 
-    /* FOOTER */
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .footer-content {
+
         grid-template-columns:
             repeat(2, 1fr);
 
-        gap: 45px;
+        gap:
+            45px;
+
     }
+
 
     .footer-brand {
+
         grid-column:
             1 / -1;
+
     }
+
 
     .footer-location {
+
         grid-column:
             1;
+
     }
 
+
     .footer-works {
+
         grid-column:
             2;
+
     }
 
 }
@@ -293,226 +410,376 @@
 
 @media (max-width: 767px) {
 
-    /* NAVIGATION */
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
 
     .navbar {
-        height: 65px;
+
+        height:
+            65px;
 
         padding:
             0 18px;
+
     }
+
 
     .brand img {
         width: 112px;
     }
 
+
     .nav-left {
         gap: 14px;
     }
 
+
     .nav-date {
-        padding-left: 12px;
 
-        font-size: 10px;
+        padding-left:
+            12px;
 
-        letter-spacing: 1px;
+        font-size:
+            10px;
+
+        letter-spacing:
+            1px;
+
     }
+
 
     .nav-right {
         gap: 12px;
     }
 
+
     .nav-time {
         display: none;
     }
 
+
     .menu-toggle {
-        width: 43px;
-        height: 43px;
+
+        width:
+            43px;
+
+        height:
+            43px;
+
+        position:
+            relative;
+
+        z-index:
+            1001;
+
     }
+
 
     .menu-toggle span {
         width: 18px;
     }
 
+
+    /* =====================================================
+       FULL SCREEN MOBILE MENU
+       ===================================================== */
+
     .mobile-menu {
-        top: 65px;
 
-        right: 15px;
+        top: 0;
+        right: 0;
 
-        width:
-            calc(100% - 30px);
+        width: 100%;
+        max-width: none;
 
-        max-width: 320px;
+        height: 100vh;
+        height: 100svh;
+
+        padding:
+            0 25px 75px;
+
+        justify-content:
+            flex-end;
+
+        align-items:
+            flex-start;
+
     }
 
 
-    /* HERO */
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero-content {
         padding:
             0 25px;
     }
 
+
     .hero-text {
         max-width:
             100%;
     }
 
+
     .hero-label {
-        font-size: 10px;
-        letter-spacing: 1.5px;
+        font-size:
+            10px;
+
+        letter-spacing:
+            1.5px;
     }
+
 
     .hero-text h1 {
+
         font-size:
-            clamp(38px, 11vw, 52px);
+            clamp(
+                38px,
+                11vw,
+                52px
+            );
 
-        line-height: 1.05;
+        line-height:
+            1.05;
 
-        margin-bottom: 16px;
+        margin-bottom:
+            16px;
+
     }
 
+
     .hero-subtitle {
+
         max-width:
             480px;
 
-        font-size: 10px;
+        font-size:
+            10px;
 
-        line-height: 1.8;
+        line-height:
+            1.8;
+
     }
 
 
-    /* HERO BUTTONS */
+    /* =====================================================
+       HERO BUTTONS
+       ===================================================== */
 
     .hero-buttons {
-        flex-wrap: wrap;
 
-        gap: 10px;
+        flex-wrap:
+            wrap;
+
+        gap:
+            10px;
+
     }
 
+
     .hero-buttons .btn {
-        min-width: 125px;
+
+        min-width:
+            125px;
 
         padding:
             11px 18px;
 
-        font-size: 10px;
+        font-size:
+            10px;
+
     }
 
 
-    /* STATS */
+    /* =====================================================
+       STATS
+       ===================================================== */
 
     .hero-stats {
-        gap: 18px;
 
-        margin-top: 30px;
+        gap:
+            18px;
+
+        margin-top:
+            30px;
+
     }
+
 
     .stat-item {
+
         min-width:
             75px;
+
     }
+
 
     .stat-item strong {
-        font-size: 23px;
+        font-size:
+            23px;
     }
+
 
     .stat-item span {
-        font-size: 8px;
 
-        letter-spacing: 0.8px;
+        font-size:
+            8px;
+
+        letter-spacing:
+            0.8px;
+
     }
 
 
-    /* SECTIONS */
+    /* =====================================================
+       SECTIONS
+       ===================================================== */
 
     .portfolio-section {
+
         padding:
             70px 18px;
+
     }
+
 
     .section-heading {
-        margin-bottom: 30px;
+        margin-bottom:
+            30px;
     }
+
 
     .section-number {
-        font-size: 10px;
-        letter-spacing: 3px;
+
+        font-size:
+            10px;
+
+        letter-spacing:
+            3px;
+
     }
+
 
     .section-heading h2 {
-        font-size:
-            clamp(27px, 8vw, 38px);
 
-        margin-bottom: 12px;
+        font-size:
+            clamp(
+                27px,
+                8vw,
+                38px
+            );
+
+        margin-bottom:
+            12px;
+
     }
+
 
     .section-heading p {
-        font-size: 12px;
 
-        line-height: 1.7;
+        font-size:
+            12px;
+
+        line-height:
+            1.7;
+
     }
 
 
-    /* PLAYLIST */
+    /* =====================================================
+       PLAYLIST
+       ===================================================== */
 
     .playlist-container {
-        gap: 7px;
+        gap:
+            7px;
     }
+
 
     .playlist-track {
-        gap: 10px;
+        gap:
+            10px;
     }
 
+
     .playlist-track img {
+
         flex:
             0 0 100%;
 
-        width: 100%;
+        width:
+            100%;
 
         height:
-            min(62vw, 330px);
+            min(
+                62vw,
+                330px
+            );
 
-        border-radius: 8px;
+        border-radius:
+            8px;
+
     }
 
+
     .slider-arrow {
+
         flex:
             0 0 38px;
 
-        width: 38px;
-        height: 38px;
+        width:
+            38px;
 
-        font-size: 11px;
+        height:
+            38px;
+
+        font-size:
+            11px;
+
     }
 
 
-    /* SECTION BUTTON */
+    /* =====================================================
+       SECTION BUTTON
+       ===================================================== */
 
     .section-button {
-        margin-top: 25px;
+        margin-top:
+            25px;
     }
 
+
     .section-button .btn {
+
         width:
             100%;
 
         max-width:
             230px;
+
     }
 
 
-    /* ANIMATION CARDS */
+    /* =====================================================
+       ANIMATION CARDS
+       ===================================================== */
 
     .animation-cards {
+
         grid-template-columns:
             1fr;
 
-        gap: 20px;
+        gap:
+            20px;
+
     }
 
+
     .animation-card:nth-child(3) {
+
         grid-column:
             auto;
 
@@ -521,52 +788,82 @@
 
         margin:
             0;
+
     }
+
 
     .animation-card-image {
+
         height:
-            min(58vw, 300px);
+            min(
+                58vw,
+                300px
+            );
+
     }
+
 
     .animation-card-content {
-        padding: 20px;
+        padding:
+            20px;
     }
+
 
     .animation-card-content h3 {
-        font-size: 18px;
+        font-size:
+            18px;
     }
+
 
     .animation-card-content p {
-        min-height: auto;
 
-        font-size: 12px;
+        min-height:
+            auto;
+
+        font-size:
+            12px;
+
     }
 
 
-    /* FOOTER */
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .site-footer {
+
         padding:
             55px 20px 20px;
+
     }
 
+
     .footer-content {
+
         grid-template-columns:
             1fr;
 
-        gap: 35px;
+        gap:
+            35px;
 
-        text-align: center;
+        text-align:
+            center;
+
     }
+
 
     .footer-brand,
     .footer-location,
     .footer-works {
+
         grid-column:
             auto;
+
     }
 
+
     .footer-brand {
+
         display:
             flex;
 
@@ -575,39 +872,60 @@
 
         align-items:
             center;
+
     }
+
 
     .footer-location {
         text-align:
             center;
     }
 
+
     .footer-works {
         align-items:
             center;
     }
 
+
     .footer-works a:hover {
+
         transform:
             translateY(-2px);
+
     }
 
+
     .footer-social {
+
         margin-top:
             40px;
 
-        gap: 9px;
+        gap:
+            9px;
+
     }
+
 
     .footer-social a {
-        width: 39px;
-        height: 39px;
+
+        width:
+            39px;
+
+        height:
+            39px;
+
     }
 
-    .footer-bottom p {
-        font-size: 9px;
 
-        line-height: 1.6;
+    .footer-bottom p {
+
+        font-size:
+            9px;
+
+        line-height:
+            1.6;
+
     }
 
 }
@@ -620,79 +938,169 @@
 
 @media (max-width: 575px) {
 
-    /* NAVIGATION */
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
 
     .navbar {
+
         padding:
             0 14px;
+
     }
+
 
     .brand img {
-        width: 100px;
+        width:
+            100px;
     }
+
 
     .nav-date {
-        display: none;
+        display:
+            none;
     }
 
 
-    /* HERO */
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
 
-    .hero-content {
-        padding:
-            0 20px;
-    }
+    .mobile-menu {
 
-    .hero-text h1 {
-        font-size:
-            39px;
-    }
+        top:
+            0;
 
-    .hero-subtitle {
-        font-size:
-            9px;
-    }
+        right:
+            0;
 
-    .hero-buttons {
         width:
             100%;
+
+        max-width:
+            none;
+
+        height:
+            100vh;
+
+        height:
+            100svh;
+
+        padding:
+            0 20px 65px;
+
+        justify-content:
+            flex-end;
+
+        align-items:
+            flex-start;
+
     }
 
+
+    .mobile-menu a {
+
+        width:
+            min(
+                330px,
+                90vw
+            );
+
+        font-size:
+            14px;
+
+        padding:
+            10px 0;
+
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero-content {
+
+        padding:
+            0 20px;
+
+    }
+
+
+    .hero-text h1 {
+
+        font-size:
+            39px;
+
+    }
+
+
+    .hero-subtitle {
+
+        font-size:
+            9px;
+
+    }
+
+
+    .hero-buttons {
+
+        width:
+            100%;
+
+    }
+
+
     .hero-buttons .btn {
+
         flex:
             1;
 
         min-width:
             0;
+
     }
 
 
-    /* STATS */
+    /* =====================================================
+       STATS
+       ===================================================== */
 
     .hero-stats {
+
         width:
             100%;
 
         justify-content:
             space-between;
 
-        gap: 8px;
+        gap:
+            8px;
+
     }
 
+
     .stat-item {
+
         min-width:
             0;
 
         flex:
             1;
+
     }
+
 
     .stat-item strong {
+
         font-size:
             20px;
+
     }
 
+
     .stat-item span {
+
         display:
             block;
 
@@ -701,20 +1109,27 @@
 
         line-height:
             1.4;
+
     }
 
 
-    /* PLAYLIST */
+    /* =====================================================
+       PLAYLIST
+       ===================================================== */
 
     .playlist-track img {
+
         height:
             55vw;
 
         min-height:
             200px;
+
     }
 
+
     .slider-arrow {
+
         flex:
             0 0 34px;
 
@@ -723,30 +1138,42 @@
 
         height:
             34px;
+
     }
 
 
-    /* ANIMATION CARD */
+    /* =====================================================
+       ANIMATION CARD
+       ===================================================== */
 
     .animation-card-image {
+
         height:
             52vw;
 
         min-height:
             200px;
+
     }
 
 
-    /* FOOTER */
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
     .footer-logo {
+
         width:
             125px;
+
     }
 
+
     .footer-column p {
+
         font-size:
             11px;
+
     }
 
 }
@@ -759,72 +1186,255 @@
 
 @media (max-width: 399px) {
 
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
+
     .brand img {
+
         width:
             90px;
+
     }
+
 
     .menu-toggle {
+
         width:
             40px;
 
         height:
             40px;
+
     }
+
+
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
+
+    .mobile-menu {
+
+        padding:
+            0 20px 60px;
+
+    }
+
+
+    .mobile-menu a {
+
+        width:
+            min(
+                310px,
+                90vw
+            );
+
+        font-size:
+            13px;
+
+        padding:
+            9px 0;
+
+    }
+
+
+    /* =====================================================
+       HERO
+       ===================================================== */
 
     .hero-text h1 {
+
         font-size:
             34px;
+
     }
+
 
     .hero-label {
+
         font-size:
             9px;
+
     }
+
 
     .hero-subtitle {
+
         font-size:
             8px;
+
     }
+
 
     .hero-buttons {
+
         flex-direction:
             column;
+
     }
+
 
     .hero-buttons .btn {
+
         width:
             100%;
+
     }
+
 
     .hero-stats {
+
         gap:
             5px;
+
     }
+
 
     .stat-item strong {
+
         font-size:
             18px;
+
     }
+
 
     .stat-item span {
+
         font-size:
             6px;
+
     }
+
 
     .portfolio-section {
+
         padding:
             60px 14px;
+
     }
+
 
     .playlist-container {
+
         gap:
             5px;
+
     }
 
+
     .playlist-track img {
+
         height:
             52vw;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU — FINAL OVERRIDE
+   ========================================================= */
+
+/*
+ * This keeps the mobile menu full-screen
+ * even if another stylesheet contains old
+ * top/right/width rules.
+ */
+
+@media (max-width: 767px) {
+
+    .mobile-menu {
+
+        position:
+            fixed;
+
+        inset:
+            0;
+
+        top:
+            0;
+
+        right:
+            0;
+
+        width:
+            100%;
+
+        max-width:
+            none;
+
+        height:
+            100vh;
+
+        height:
+            100svh;
+
+        padding:
+            0 25px 75px;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        justify-content:
+            flex-end;
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .mobile-menu a {
+
+        width:
+            min(
+                330px,
+                90vw
+            );
+
+        font-size:
+            14px;
+
+        padding:
+            10px 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU — EXTRA SMALL FINAL
+   ========================================================= */
+
+@media (max-width: 399px) {
+
+    .mobile-menu {
+
+        padding:
+            0 20px 60px;
+
+    }
+
+
+    .mobile-menu a {
+
+        width:
+            min(
+                310px,
+                90vw
+            );
+
+        font-size:
+            13px;
+
+        padding:
+            9px 0;
+
     }
 
 }

@@ -355,83 +355,496 @@ button {
 
 /* =========================================================
    7. MOBILE MENU
+   FULL SCREEN — BOTTOM LEFT STYLE
    ========================================================= */
 
 .mobile-menu {
+
     position: fixed;
 
-    top: 78px;
-    right: 30px;
+    inset: 0;
 
-    width: 250px;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
 
-    padding: 15px;
+    padding:
+        0 7vw 85px;
 
     display: flex;
+
     flex-direction: column;
-    gap: 5px;
+
+    justify-content: flex-end;
+
+    align-items: flex-start;
 
     background:
-        rgba(3, 15, 31, 0.96);
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 14px;
-
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
-
-    box-shadow:
-        var(--glow-large);
+        linear-gradient(
+            180deg,
+            rgb(1, 7, 15),
+            rgb(2, 14, 28)
+        );
 
     opacity: 0;
+
     visibility: hidden;
 
     transform:
-        translateY(-15px);
+        translateY(-25px);
 
     transition:
-        0.3s ease;
+        opacity 0.35s ease,
+        transform 0.5s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        ),
+        visibility 0.35s ease;
 
-    z-index: 999;
+    overflow: hidden;
+
+    z-index: 998;
+
 }
 
+
+/* =========================================================
+   BACKGROUND LIGHT
+   ========================================================= */
+
+.mobile-menu::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 550px;
+    height: 550px;
+
+    left: -180px;
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(30, 150, 255, 0.18),
+            transparent 70%
+        );
+
+    filter:
+        blur(35px);
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   TOP DARK GRADIENT
+   ========================================================= */
+
+.mobile-menu::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.45),
+            transparent 45%,
+            rgba(0, 8, 18, 0.25)
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================================
+   OPEN
+   ========================================================= */
+
 .mobile-menu.active {
+
     opacity: 1;
+
     visibility: visible;
 
     transform:
         translateY(0);
+
 }
+
+
+/* =========================================================
+   MENU LINKS
+   ========================================================= */
 
 .mobile-menu a {
-    padding: 14px 16px;
 
-    border-radius: 8px;
+    position: relative;
 
-    color: var(--text-secondary);
+    z-index: 2;
 
-    font-size: 13px;
-    font-weight: 700;
+    width: min(
+        360px,
+        85vw
+    );
 
-    letter-spacing: 1.5px;
+    padding:
+        11px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    color:
+        rgba(220, 240, 250, 0.52);
+
+    background: transparent;
+
+    border-bottom:
+        1px solid
+        rgba(100, 200, 255, 0.10);
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    text-decoration: none;
 
     transition:
-        var(--transition);
+        color 0.25s ease,
+        padding-left 0.3s ease,
+        border-color 0.25s ease;
+
 }
 
+/* =========================================================
+   HOVER
+   ========================================================= */
+
 .mobile-menu a:hover {
-    color: #ffffff;
+
+    color:
+        #ffffff;
+
+    padding-left:
+        10px;
+
+    border-color:
+        rgba(100, 210, 255, 0.30);
+
+}
+
+
+.mobile-menu a:hover::before {
+
+    color:
+        #63d4ff;
+
+}
+
+
+.mobile-menu a:hover::after {
+
+    opacity: 1;
+
+    transform:
+        translateX(0);
+
+    color:
+        #63d4ff;
+
+}
+
+
+/* =========================================================
+   ACTIVE PAGE
+   ========================================================= */
+
+.mobile-menu a.active {
+
+    color:
+        #ffffff;
+
+    padding-left:
+        12px;
 
     background:
-        rgba(20, 130, 240, 0.15);
+        linear-gradient(
+            90deg,
+            rgba(50, 180, 255, 0.10),
+            transparent 75%
+        );
+
+    border-bottom-color:
+        rgba(99, 212, 255, 0.35);
 
     box-shadow:
-        inset 3px 0 0 var(--blue-main);
+        inset 2px 0 0 #63d4ff;
+
+}
+
+.mobile-menu a.active::before {
+
+    color:
+        #63d4ff;
+
+}
+
+
+/* =========================================================
+   ACTIVE STATUS
+   ========================================================= */
+
+.mobile-menu a.active::after {
+
+    margin-left: auto;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 52px;
+
+    height: 20px;
+
+    padding:
+        0 8px;
+
+    border:
+        1px solid
+        rgba(99, 212, 255, 0.45);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(99, 212, 255, 0.08);
+
+    color:
+        #63d4ff;
+
+    font-size:
+        6px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.4px;
+
+    opacity:
+        1;
+
+    transform:
+        none;
+
+    text-shadow:
+        0 0 8px
+        rgba(99, 212, 255, 0.8);
+
+    box-shadow:
+        0 0 12px
+        rgba(40, 180, 255, 0.12);
+
+    transition:
+        0.25s ease;
+
+}
+
+/* =========================================================
+   MENU REVEAL
+   ========================================================= */
+
+.mobile-menu.active a {
+
+    animation:
+        menuBottomReveal
+        0.45s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        )
+        both;
+
+}
+
+
+.mobile-menu.active a:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.mobile-menu.active a:nth-child(2) {
+    animation-delay: 0.09s;
+}
+
+.mobile-menu.active a:nth-child(3) {
+    animation-delay: 0.13s;
+}
+
+.mobile-menu.active a:nth-child(4) {
+    animation-delay: 0.17s;
+}
+
+.mobile-menu.active a:nth-child(5) {
+    animation-delay: 0.21s;
+}
+
+.mobile-menu.active a:nth-child(6) {
+    animation-delay: 0.25s;
+}
+
+.mobile-menu.active a:nth-child(7) {
+    animation-delay: 0.29s;
+}
+
+.mobile-menu.active a:nth-child(8) {
+    animation-delay: 0.33s;
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes menuBottomReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .mobile-menu {
+
+        padding:
+            0 25px 75px;
+
+    }
+
+
+    .mobile-menu a {
+
+        width:
+            min(
+                330px,
+                88vw
+            );
+
+        padding:
+            10px 0;
+
+        font-size:
+            14px;
+
+        letter-spacing:
+            1.5px;
+
+    }
+
+
+    .mobile-menu a::before {
+
+        width:
+            28px;
+
+        font-size:
+            6px;
+
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .mobile-menu {
+
+        padding:
+            0 20px 65px;
+
+    }
+
+
+    .mobile-menu a {
+
+        font-size:
+            13px;
+
+        padding:
+            9px 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .mobile-menu {
+
+        transition:
+            opacity 0.2s ease;
+
+        transform:
+            none;
+
+    }
+
+
+    .mobile-menu.active a {
+
+        animation:
+            none;
+
+    }
+
 }
 
 
