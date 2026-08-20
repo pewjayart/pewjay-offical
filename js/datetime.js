@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
             now.toLocaleDateString(
                 "en-US",
                 {
-                    weekday: "short"
+                    weekday: "long"
                 }
             ).toUpperCase();
 
