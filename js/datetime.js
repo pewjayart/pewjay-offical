@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
             now.toLocaleDateString(
                 "en-US",
                 {
-                    month: "short"
+                    month: "long"
                 }
             ).toUpperCase();
 
@@ -86,17 +86,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         /* =================================================
-           CLOCK
-           Example: 10:30 AM
-           ================================================= */
+            CLOCK
+            Example: 10:30:45 AM
+            ================================================= */
 
-        const clock =
-            now.toLocaleTimeString(
+            const clock = now.toLocaleTimeString(
                 "en-US",
                 {
                     hour: "numeric",
                     minute: "2-digit",
-                    hour12: true
+                    second: "2-digit",
+                    hour12: true,
+                    timeZone: "Asia/Manila"
                 }
             );
 
